@@ -1,12 +1,40 @@
-//options for viewing 
-//view all departments, view all employees, add a department, add a role, add an employee, update an employee role
+const fs = require("fs");
+const inquirer = require("inquirer");
+const { Pool } = require('pg')
 
-//if all departments is chosen the user is shown a table with the department names and ids
+const PORT = process.env.PORT || 3001;
+const app = express();
 
-//if all roles is chosen the user will be presented with Job titles, role ids, the department of the role, & Salary
+// Express middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-//for view all employees the user will see a formatted table showing employee data, including employee ids, 
-//first names, last names, job titles, departments, salaries, and managers that the employees report to
+const pool = new Pool(
+    {
+      user: 'postgres',
+      password: 'SQLuser2024!',
+      host: 'localhost',
+      database: 'employee_tracker_db'
+    },
+    console.log(`Connected to the employee_tracker_db database.`)
+  )
 
-//to add a department the user will in
+  pool.connect();
+
+  const questions = [
+    {
+        type: "list",
+        name: "selection",
+        message: "Please choose from the following actions",
+        choices: [
+            "View all departments",
+            "View all roles",
+            "View all employees",
+            "Add a department",
+            "Add a role",
+            "Add an employee",
+            "Update an employee role"
+        ],
+    },
+];
 
