@@ -21,7 +21,7 @@ const pool = new Pool(
 
   pool.connect();
 
-  const questions = [
+  inquirer.prompt([
     {
         type: "list",
         name: "selection",
@@ -36,5 +36,41 @@ const pool = new Pool(
             "Update an employee role"
         ],
     },
-];
+    {
+        type: "input",
+        name: "department",
+        message: "What is the name of the department?",
+        when: (answers) => answers.selection === "Add a department"
+    },
+    {
+        type: "input",
+        name: "roleTitle",
+        message: "What is the title of this role?",
+        when: (answers) => answers.selection === "Add a role"
+    },
+    {
+        type: "input",
+        name: "salary",
+        message: "What is the salary for this role?",
+        when: (answers) => answers.selection === "Add a role"
+    },
+    {
+        type: "input",
+        name: "firstName",
+        message: "What is the first name of the employee?",
+        when: (answers) => answers.selection === "Add an employee"
+    },
+    {
+        type: "input",
+        name: "lastName",
+        message: "What is the last name of the employee?",
+        when: (answers) => answers.selection === "Add an employee"
+    },
+    {
+        type: "input",
+        name: "firstName",
+        message: "What is the first name of the employee?",
+        when: (answers) => answers.selection === "Add an employee"
+    },
+]);
 
