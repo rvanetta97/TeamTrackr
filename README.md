@@ -1,5 +1,7 @@
 # TeamTrackr
 
+Walkthrough video https://drive.google.com/file/d/11p38dH0u7DQvmMUkYGfsK0pJ09RQFuKb/view?usp=sharing
+
 #Employee Tracker
 This Node.js application allows users to manage departments, roles, and employees of a company. It provides functionalities to view existing data, add new entries, and update employee roles.
 
